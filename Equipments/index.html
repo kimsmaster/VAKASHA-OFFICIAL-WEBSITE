@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipments for Hire</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel = "shortcut icon" type = "image" href = "LOGO.png">
+  </head>
+  <body>
+
+    <header>
+      <a href="#" class="brand">Vakasha</a>
+      <div class="menu">
+        <div class="btn">
+          <i class="fas fa-times close-btn"></i>
+        </div>
+        <a href="../index.html#home">Home</a>
+        <a href="../index.html#gallery">projects</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#contacts">Contact</a>
+      </div>
+      <div class="btn">
+        <i class="fas fa-bars menu-btn"></i>
+      </div>
+    </header>
+    <section class="section-main">
+      <h1>Our Equipments and Materials</h1>
+    </section>
+    <section id="slideshow">
+			<div class="entire-content">
+				<div class="content-carrousel">
+					<figure class="shadow"><img src="2.jpg"/></figure>
+					<figure class="shadow"><img src="3.jpeg"/></figure>
+					<figure class="shadow"><img src="4.jpeg"/></figure>
+					<figure class="shadow"><img src="1.jpg"/></figure>
+					<figure class="shadow"><img src="92.jpeg"/></figure>
+					<figure class="shadow"><img src="0.jpg"/></figure>
+					<figure class="shadow"><img src="91.jpg"/></figure>
+					<figure class="shadow"><img src="90.jpeg"/></figure>
+					<figure class="shadow"><img src="94.jpeg"/></figure>
+		</div>
+
+</section>
+<section class="paragraph">
+  <p>We supply quality construction materials all over the country ensuring our clients worry no more on logistical challenges.
+    We carry out quality tests and intensive research to ensure that our clients get the best materials to build their dream homes.
+    We believe in the quality of both products and services as we position ourselves to offer quality services and products to our clients.</p>
+</section>
+
+
+    
+    <footer>
+      <div class="main-content">
+        <div class="left box">
+          <h2>About us</h2>
+          <div class="content">
+            <p>Our equipments have been proven reliable and environmental friendly. 
+              They are electric with minimal emission and sound pollution hence suitable for even calm neighborhoods.
+                     We provide below Equipment for Hire at reasonably cheap charges;</p>
+            <div class="social">
+              <a href="https://facebook.com/coding.np"><span class="fab fa-facebook-f"></span></a>
+              <a href="#"><span class="fab fa-twitter"></span></a>
+              <a href="https://instagram.com/coding.np"><span class="fab fa-instagram"></span></a>
+              <a href="https://youtube.com/c/codingnepal"><span class="fab fa-youtube"></span></a>
+            </div>
+          </div>
+        </div>
+        <div class="center box">
+          <h2>Address</h2>
+          <div class="content">
+            <div class="place">
+              <span class="fas fa-map-marker-alt"></span>
+              <span class="text">westlans road</span>
+            </div>
+            <div class="phone">
+              <span class="fas fa-phone-alt"></span>
+              <span class="text">+254 786 84 70 56</span>
+            </div>
+            <div class="email">
+              <span class="fas fa-envelope"></span>
+              <span class="text">Info@vakashaenterprises.co.ke</span>
+            </div>
+          </div>
+        </div>
+        <div class="right box">
+          <h2>Contact us</h2>
+          <div class="content">
+            <form action="#">
+              <div class="email">
+                <div class="text">Email *</div>
+                <input type="email" required>
+              </div>
+              <div class="msg">
+                <div class="text">Message *</div>
+                <textarea rows="2" cols="25" required></textarea>
+              </div>
+              <div class="btn">
+                <button type="submit">Send</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="bottom">
+        <center>
+          <span class="credit">Created By <a href="">Nteere</a> | </span>
+          <span class="far fa-copyright"></span><span> 2022 All rights reserved.</span>
+        </center>
+      </div>
+      </footer>
+
+    <script type="text/javascript">
+    //javascript for navigation bar effect on scroll
+    window.addEventListener("scroll", function(){
+      var header = document.querySelector("header");
+      header.classList.toggle('sticky', window.scrollY > 0);
+    });
+
+    //javascript for responsive navigation sidebar menu
+    var menu = document.querySelector('.menu');
+    var menuBtn = document.querySelector('.menu-btn');
+    var closeBtn = document.querySelector('.close-btn');
+
+    menuBtn.addEventListener("click", () => {
+      menu.classList.add('active');
+    });
+
+    closeBtn.addEventListener("click", () => {
+      menu.classList.remove('active');
+    });
+
+    var slides = document.querySelectorAll('.slide');
+    var btns = document.querySelectorAll('.btn');
+    let currentSlide = 1;
+
+    // Javascript for image slider manual navigation
+    var manualNav = function(manual){
+      slides.forEach((slide) => {
+        slide.classList.remove('active');
+
+        btns.forEach((btn) => {
+          btn.classList.remove('active');
+        });
+      });
+
+      slides[manual].classList.add('active');
+      btns[manual].classList.add('active');
+    }
+
+    btns.forEach((btn, i) => {
+      btn.addEventListener("click", () => {
+        manualNav(i);
+        currentSlide = i;
+      });
+    });
+
+    // Javascript for image slider autoplay navigation
+    var repeat = function(activeClass){
+      let active = document.getElementsByClassName('active');
+      let i = 1;
+
+      var repeater = () => {
+        setTimeout(function(){
+          [...active].forEach((activeSlide) => {
+            activeSlide.classList.remove('active');
+          });
+
+        slides[i].classList.add('active');
+        btns[i].classList.add('active');
+        i++;
+
+        if(slides.length == i){
+          i = 0;
+        }
+        if(i >= slides.length){
+          return;
+        }
+        repeater();
+      }, 10000);
+      }
+      repeater();
+    }
+    repeat();
+    </script>
+
+  </body>
+</html>
